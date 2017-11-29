@@ -3,6 +3,6 @@ export const environment = {
   odataConfig: [{
     name: "PipeTally",
     baseUrl: "https://dvnstg-AppLibraryAPI-dev.azurewebsites.net/",
-    resource: "https://dvn.onmicrosoft.com/6c923af0-16b7-4f8d-990f-20b04c73d208"
+    resource: " https://dvnhackathon.onmicrosoft.com/2037db28-1a0d-4557-9ec7-39e7911930e1"
 }],
 };
