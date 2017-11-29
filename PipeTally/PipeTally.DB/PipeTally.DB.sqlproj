@@ -58,4 +58,9 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="JobSite.sql" />
+    <Build Include="MeasurementRun.sql" />
+    <Build Include="Measurement.sql" />
+  </ItemGroup>
 </Project>
