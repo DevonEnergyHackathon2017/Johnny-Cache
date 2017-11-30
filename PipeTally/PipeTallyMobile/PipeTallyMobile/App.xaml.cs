@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PipeTallyMobile.DataAccess;
+using PipeTallyMobile.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,26 +11,43 @@ namespace PipeTallyMobile
 {
     public partial class App : Application
     {
+        static PipeTallyDatabase database;
+        public GlobalSettings Settings { get; private set; }
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new PipeTallyMobile.MainPage();
+            MainPage = new NavigationPage(new PipeTallyMobile.MainPage());
+            Settings = new GlobalSettings();
+        }
+
+        public static PipeTallyDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new PipeTallyDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("PipeTallySQLite.db3"));
+                }
+                return database;
+            }
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            //start background upload thread
+
         }
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
+            //pause background upload thread
         }
 
         protected override void OnResume()
         {
-            // Handle when your app resumes
+            //restart background upload thread
         }
     }
 }

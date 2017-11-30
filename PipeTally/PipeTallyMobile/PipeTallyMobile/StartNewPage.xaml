@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PipeTallyMobile.StartNewPage">
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <Label  Text="Enter details for the whole batch of casing" />
+
+            <Picker x:Name="pckOuterDiam" Title="Outer Diam" />
+            <Picker x:Name="pckWeight" Title="Weight" />
+            <Picker x:Name="pckGrade" Title="Grade" />
+            <Picker x:Name="pckInnerDiam" Title="Inner Diam" />
+            <Picker x:Name="pckThread" Title="Top Thread Type" />
+
+            <Button HeightRequest="60"
+                    Text="Start Measuring"
+                    BackgroundColor="DarkGreen"
+                    TextColor="White"
+                    Clicked="OnStartMeasure"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
