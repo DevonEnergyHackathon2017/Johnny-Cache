@@ -9,9 +9,9 @@ using Newtonsoft.Json;
 
 namespace PipeTallyMobile.Services
 {
-    class PipeTallyService
+    public static class PipeTallyService
     {
-        public void SendMeasurements(string svcURL, MeasureBatch batch, List<Measurement> measures)
+        private static void SendMeasurements(string svcURL, MeasureBatch batch, List<Measurement> measures)
         {
             var endpoint = svcURL + "/Job";
             HttpClient client = new HttpClient();
@@ -20,6 +20,18 @@ namespace PipeTallyMobile.Services
             var content = new StringContent(json);
 
             client.PostAsync(endpoint, content).Start();
+        }
+
+        public static async void UploadNewBatches()
+        {
+            var batches = await App.Database.GetBatchesToUpload();
+            foreach(var batch in batches)
+            {
+                var measures = await App.Database.GetMeasurementsForBatch(batch.ID);
+                SendMeasurements(App.Settings.ServiceURL, batch, measures);
+                batch.Uploaded = true;
+                App.Database.UpdateBatch(batch);
+            }
         }
     }
 }
