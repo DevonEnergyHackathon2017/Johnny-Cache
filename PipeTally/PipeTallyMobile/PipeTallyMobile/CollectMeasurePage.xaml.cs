@@ -51,8 +51,6 @@ namespace PipeTallyMobile
                 measure.Order = _batchMeasures.Count() + 1;
                 _batchMeasures.Add(measure);
 
-                App.Database.StoreFullBatch(_batch);
-
                 txtFullLength.Text = null;
                 txtThreadLength.Text = null;
 
@@ -65,6 +63,7 @@ namespace PipeTallyMobile
         private void OnFinished(object sender, EventArgs e)
         {
             //save data. Nav back to empty nav stack.
+            App.Database.StoreFullBatch(_batch, _batchMeasures);
             this.Navigation.PopToRootAsync(true);
         }
 

@@ -1,4 +1,5 @@
 ﻿using PipeTallyMobile.DataAccess;
+using PipeTallyMobile.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,14 @@ namespace PipeTallyMobile
     public partial class App : Application
     {
         static PipeTallyDatabase database;
+        public GlobalSettings Settings { get; private set; }
 
         public App()
         {
             InitializeComponent();
 
             MainPage = new NavigationPage(new PipeTallyMobile.MainPage());
+            Settings = new GlobalSettings();
         }
 
         public static PipeTallyDatabase Database

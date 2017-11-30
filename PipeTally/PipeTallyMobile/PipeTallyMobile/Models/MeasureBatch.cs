@@ -12,10 +12,10 @@ namespace PipeTallyMobile.Models
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
 
-        public float OD { get; set; }
+        public float OuterDiameter { get; set; }
         public int Weight { get; set; }
         public string Grade { get; set; }
-        public float I_D { get; set; }
+        public float InnerDiameter { get; set; }
         public string TopThread { get; set; }
 
         //[Ignore] //have SqlLite ignore this. It's not EF 

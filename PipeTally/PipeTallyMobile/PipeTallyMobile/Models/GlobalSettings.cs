@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace PipeTallyMobile.Models
 {
-    public enum UOMType
+    public class GlobalSettings
     {
-        METRIC,
-        IMPERIAL
-    }
-
-    class GlobalSettings
-    {
-        public UOMType Uom { get; set; }
+        public bool UseImperial { get; set; }
+        public string ServiceURL { get; private set; }
 
         public GlobalSettings()
         {
-            Uom = UOMType.IMPERIAL;
+            UseImperial = true;
+            ServiceURL = "";
         }
     }
 }

@@ -19,11 +19,6 @@ namespace PipeTallyMobile.DataAccess
                 _database = new SQLiteAsyncConnection(dbPath);
                 _database.CreateTablesAsync<Measurement, MeasureBatch>().Wait();
             }
-            catch(AggregateException aex)
-            {
-                throw;
-
-            }
             catch(Exception ex)
             {
                 throw;
@@ -35,19 +30,22 @@ namespace PipeTallyMobile.DataAccess
             return _database.Table<MeasureBatch>().ToListAsync();
         }
 
-        public async Task<MeasureBatch> GetFullBatch(int batchID)
+        public async Task<MeasureBatch> GetBatch(int batchID)
         {
             var batch = await _database.GetAsync<MeasureBatch>(batchID);
-            var measures = await _database.Table<Measurement>().Where(m => m.MeasureBatchID == batchID).ToListAsync();
-            //batch.Measurements = new List<Measurement>(measures);
-
             return batch;
         }
 
-        public void StoreFullBatch(MeasureBatch batch)
+        public async Task<List<Measurement>> GetMeasurementsForBatch(int batchID)
+        {
+            var measures = await _database.Table<Measurement>().Where(m => m.MeasureBatchID == batchID).ToListAsync();
+            return measures;
+        }
+
+        public void StoreFullBatch(MeasureBatch batch, List<Measurement> measurements)
         {
             _database.InsertOrReplaceAsync(batch);
-            //_database.InsertAllAsync(batch.Measurements);
+            _database.InsertAllAsync(measurements);
         }
     }
 }

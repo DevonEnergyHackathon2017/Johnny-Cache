@@ -8,5 +8,8 @@
                HorizontalOptions="Center" />
         <Button  Text="Start new measuring session" BackgroundColor="DarkGreen" TextColor="White"
             Clicked="OnStartNewSession" HeightRequest="60"></Button>
+        <BoxView></BoxView>
+        <Label Text="Measure in Feet"></Label>
+        <Switch IsToggled="True" />
     </StackLayout>
 </ContentPage>
