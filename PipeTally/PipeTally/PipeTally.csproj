@@ -105,9 +105,6 @@
     <Reference Include="Microsoft.Data.Edm, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Data.Edm.5.8.3\lib\net40\Microsoft.Data.Edm.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.OData, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.OData.5.8.3\lib\net40\Microsoft.Data.OData.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.1.1.1\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
@@ -222,9 +219,6 @@
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Http.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.7.0\lib\net45\System.Web.Http.OData.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
     </Reference>
@@ -266,6 +260,8 @@
     <Compile Include="App_Start\Startup.Cors.cs" />
     <Compile Include="App_Start\Startup.DI.cs" />
     <Compile Include="App_Start\Startup.Routing.cs" />
+    <Compile Include="Controllers\MeasurementController.cs" />
+    <Compile Include="Controllers\JobSiteController.cs" />
     <Compile Include="DataModel\IDataModel.cs" />
     <Compile Include="DataModel\JobSite.cs" />
     <Compile Include="DataModel\Measurement.cs" />
