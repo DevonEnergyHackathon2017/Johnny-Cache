@@ -64,5 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PipeTally.DB.publish.xml" />
+    <None Include="Seed.sql" />
   </ItemGroup>
 </Project>
