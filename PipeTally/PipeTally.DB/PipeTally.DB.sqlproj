@@ -60,7 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="JobSite.sql" />
-    <Build Include="MeasurementRun.sql" />
     <Build Include="Measurement.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PipeTally.DB.publish.xml" />
   </ItemGroup>
 </Project>
