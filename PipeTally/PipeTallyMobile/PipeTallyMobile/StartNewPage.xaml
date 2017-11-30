@@ -8,6 +8,7 @@
 
             <Label  Text="Enter details for the whole batch of casing" />
 
+            <Picker x:Name="pckSiteName" Title="Site Name" />
             <Picker x:Name="pckOuterDiam" Title="Outer Diam" />
             <Picker x:Name="pckWeight" Title="Weight" />
             <Picker x:Name="pckGrade" Title="Grade" />

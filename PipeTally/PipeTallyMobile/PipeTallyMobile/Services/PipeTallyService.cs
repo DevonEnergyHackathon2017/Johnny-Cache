@@ -17,15 +17,15 @@ namespace PipeTallyMobile.Services
             foreach (var batch in batches)
             {
                 var measures = await App.Database.GetMeasurementsForBatch(batch.ID);
-                var result = SendMeasurements(App.Settings.ServiceURL, batch, measures);
+                var result =  await SendMeasurements(App.Settings.ServiceURL, batch, measures);
                 batch.Uploaded = result;
                 App.Database.UpdateBatch(batch);
             }
         }
 
-        private static bool SendMeasurements(string svcURL, MeasureBatch batch, List<Measurement> measurements)
+        private async static Task<bool> SendMeasurements(string svcURL, MeasureBatch batch, List<Measurement> measurements)
         {
-            var endpoint = svcURL + "/Job";
+            var endpoint = svcURL + "/JobSite";
             HttpClient client = new HttpClient();
             var data = Conversion(batch, measurements);
             var json = JsonConvert.SerializeObject(data);
@@ -34,8 +34,16 @@ namespace PipeTallyMobile.Services
             var result = false;
             try
             {
-                client.PostAsync(endpoint, content).Start();
-                result = true;
+                var response = await client.PostAsync(endpoint, content);
+                if(response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    result = true;
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine(response.StatusCode + " - " + await response.Content.ReadAsStringAsync());
+                    result = false;
+                }
             }
             catch(Exception ex)
             {
@@ -55,8 +63,10 @@ namespace PipeTallyMobile.Services
                 InnerDiameter = measureBatch.InnerDiameter,
                 TotalWeight = measureBatch.Weight,
                 ThreadType = measureBatch.TopThread,
+                Latitude = measureBatch.Latitude,
+                Longitude = measureBatch.Longitude,
+                Title = "",
                 Measurements = convertMeasurements(measurements)
-
             };
             return jobSite;
         }
