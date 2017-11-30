@@ -17,7 +17,7 @@ namespace PipeTallyMobile
         private void OnStartNewSession(object sender, EventArgs e)
         {
             var startNewPage = new StartNewPage();
-            this.Navigation.PushAsync(startNewPage);
+            this.Navigation.PushAsync(startNewPage, true);
         }
     }
 }
