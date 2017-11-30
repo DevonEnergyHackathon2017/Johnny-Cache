@@ -5,7 +5,7 @@ import {DataTableModule,SharedModule} from 'primeng/primeng';
 
 @Component({
   selector: "home-measurement",
-  templateUrl: "./home-measurements.component.html"
+  templateUrl: "./measurements.component.html"
 })
 export class MeasurementListComponent {
 

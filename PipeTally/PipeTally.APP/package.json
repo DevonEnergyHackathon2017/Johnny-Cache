@@ -1,5 +1,5 @@
 {
-  "name": "app-library",
+  "name": "dna.app",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -23,6 +23,7 @@
     "@angular/platform-browser": "4.4.6",
     "@angular/platform-browser-dynamic": "4.4.6",
     "@angular/router": "4.4.6",
+    "adal-angular4": "1.1.10",
     "angular-odata-es5": "0.2.5",
     "angular2-jwt": "0.2.3",
     "core-js": "2.5.1",
