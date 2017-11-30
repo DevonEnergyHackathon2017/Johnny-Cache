@@ -13,13 +13,17 @@ namespace PipeTally.DataModel
 
         public int JobSiteId { get; set; }
 
+        public int? Joint { get; set; }
+
         public double? PipeLength { get; set; }
 
         public double? ThreadLength { get; set; }
 
-        public int? UseOrder { get; set; }
+        public string ItemDescription { get; set; }
 
-        public bool? IsDamanged { get; set; }
+        public string TopThread { get; set; }
+
+        public bool? IsDamaged { get; set; }
 
         public virtual JobSite JobSite { get; set; }
     }
