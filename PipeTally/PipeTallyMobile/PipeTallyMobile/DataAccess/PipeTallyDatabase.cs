@@ -21,6 +21,7 @@ namespace PipeTallyMobile.DataAccess
             }
             catch(Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine(ex.Message + " at " + ex.StackTrace);
                 throw;
             }
         }

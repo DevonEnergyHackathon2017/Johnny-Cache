@@ -42,7 +42,8 @@ namespace PipeTallyMobile
         protected override void OnStart()
         {
             //start background upload thread
-            _timer = new PCLTimer(e => PipeTallyService.UploadNewBatches(), null, 400, -1);
+            var state = new object();
+            _timer = new PCLTimer(e => PipeTallyService.UploadNewBatches(), state, 5000, 180000, true);
         }
 
         protected override void OnSleep()
@@ -53,7 +54,8 @@ namespace PipeTallyMobile
 
         protected override void OnResume()
         {
-            _timer = new PCLTimer(e => PipeTallyService.UploadNewBatches(), null, 400, -1);
+            var state = new object();
+            _timer = new PCLTimer(e => PipeTallyService.UploadNewBatches(), state, 5000, 180000, true);
         }
     }
 }
