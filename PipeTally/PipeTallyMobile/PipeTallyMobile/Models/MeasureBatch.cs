@@ -17,6 +17,7 @@ namespace PipeTallyMobile.Models
         public string Grade { get; set; }
         public float InnerDiameter { get; set; }
         public string TopThread { get; set; }
+        public bool Uploaded { get; set; }
 
         //[Ignore] //have SqlLite ignore this. It's not EF 
         //public List<Measurement> Measurements {get;set;}

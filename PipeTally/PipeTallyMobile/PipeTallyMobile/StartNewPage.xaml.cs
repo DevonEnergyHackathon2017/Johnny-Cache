@@ -38,6 +38,7 @@ namespace PipeTallyMobile
                 batch.OuterDiameter = float.Parse(pckOuterDiam.SelectedItem.ToString());
                 batch.TopThread = pckThread.SelectedItem.ToString();
                 batch.Weight = int.Parse(pckWeight.SelectedItem.ToString());
+                batch.Uploaded = false;
                 //batch.Measurements = new List<Measurement>();
 
                 var measurePage = new CollectMeasurePage(batch);

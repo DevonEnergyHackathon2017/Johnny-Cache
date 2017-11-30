@@ -21,6 +21,7 @@ namespace PipeTallyMobile.DataAccess
             }
             catch(Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine(ex.Message + " at " + ex.StackTrace);
                 throw;
             }
         }
@@ -28,6 +29,11 @@ namespace PipeTallyMobile.DataAccess
         public Task<List<MeasureBatch>> GetBatches()
         {
             return _database.Table<MeasureBatch>().ToListAsync();
+        }
+
+        public Task<List<MeasureBatch>> GetBatchesToUpload()
+        {
+            return _database.Table<MeasureBatch>().Where(b => b.Uploaded == false).ToListAsync();
         }
 
         public async Task<MeasureBatch> GetBatch(int batchID)
@@ -40,6 +46,11 @@ namespace PipeTallyMobile.DataAccess
         {
             var measures = await _database.Table<Measurement>().Where(m => m.MeasureBatchID == batchID).ToListAsync();
             return measures;
+        }
+
+        public void UpdateBatch(MeasureBatch batch)
+        {
+            _database.UpdateAsync(batch);
         }
 
         public void StoreFullBatch(MeasureBatch batch, List<Measurement> measurements)

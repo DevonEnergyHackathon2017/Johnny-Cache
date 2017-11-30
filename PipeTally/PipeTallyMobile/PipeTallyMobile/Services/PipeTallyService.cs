@@ -9,9 +9,21 @@ using Newtonsoft.Json;
 
 namespace PipeTallyMobile.Services
 {
-    public class PipeTallyService
+    public static class PipeTallyService
     {
-        public void SendMeasurements(string svcURL, MeasureBatch batch, List<Measurement> measurements)
+        public static async void UploadNewBatches()
+        {
+            var batches = await App.Database.GetBatchesToUpload();
+            foreach (var batch in batches)
+            {
+                var measures = await App.Database.GetMeasurementsForBatch(batch.ID);
+                var result = SendMeasurements(App.Settings.ServiceURL, batch, measures);
+                batch.Uploaded = result;
+                App.Database.UpdateBatch(batch);
+            }
+        }
+
+        private static bool SendMeasurements(string svcURL, MeasureBatch batch, List<Measurement> measurements)
         {
             var endpoint = svcURL + "/Job";
             HttpClient client = new HttpClient();
@@ -19,10 +31,22 @@ namespace PipeTallyMobile.Services
             var json = JsonConvert.SerializeObject(data);
             var content = new StringContent(json);
 
-            client.PostAsync(endpoint, content).Start();
+            var result = false;
+            try
+            {
+                client.PostAsync(endpoint, content).Start();
+                result = true;
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message + " at " + ex.StackTrace);
+                result = false;
+            }
+
+            return result;
         }
 
-        private JobSiteObject Conversion(MeasureBatch measureBatch, List<Measurement> measurements)
+        private static JobSiteObject Conversion(MeasureBatch measureBatch, List<Measurement> measurements)
         {
             var jobSite = new JobSiteObject
             {
@@ -37,7 +61,7 @@ namespace PipeTallyMobile.Services
             return jobSite;
         }
 
-        private IEnumerable<MeasurementObject> convertMeasurements(List<Measurement> measurements)
+        private static IEnumerable<MeasurementObject> convertMeasurements(List<Measurement> measurements)
         {
             var measurmentObjectList = new List<MeasurementObject>();
             int jointNum = Int32.MaxValue;
@@ -100,5 +124,7 @@ namespace PipeTallyMobile.Services
         public string ThreadType { get; set; }
 
         public IEnumerable<MeasurementObject> Measurements { get; set; }
+
+        
     }
 }

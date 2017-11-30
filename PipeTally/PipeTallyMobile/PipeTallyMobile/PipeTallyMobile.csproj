@@ -55,6 +55,7 @@
     <Compile Include="StartNewPage.xaml.cs">
       <DependentUpon>StartNewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utility\PCLTimer.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
