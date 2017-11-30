@@ -1,0 +1,25 @@
+<mat-card *ngIf="entity">
+        <mat-card-header>
+          <mat-card-title>
+            <h2>job site delete</h2>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+          <a mat-button color="primary" [routerLink]="['/home-list']" title="close"><span class="fa fa-close"></span> close</a>
+          <a mat-button color="primary" [routerLink]="['/home-read', entity.JobSiteId]" title="read"><span class="fa fa-eye"></span> read</a>
+          <a mat-button color="primary" [routerLink]="['/home-update', entity.JobSiteId]" title="update"><span class="fa fa-edit"></span> update</a>
+          <a mat-button disabled color="primary" [routerLink]="['/home-delete', entity.JobSiteId]" title="delete"><span class="fa fa-trash"></span> delete</a>
+        </mat-card-actions>
+        <mat-card-content>
+          <home-view [entity]="entity"></home-view>
+          <div>
+            <p-messages [(value)]="msgs" [closable]="false"></p-messages>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="warn" (click)="Confirm()" title="confirm"><span class="fa fa-check"></span> confirm</button>
+        </mat-card-actions>
+      </mat-card>
+      
+      <p-growl [(value)]="messageSvc.msgs"></p-growl>
+      

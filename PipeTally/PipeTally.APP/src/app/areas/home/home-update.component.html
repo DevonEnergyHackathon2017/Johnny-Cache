@@ -1,0 +1,23 @@
+<mat-card *ngIf="entity && CanUpdate">
+        <mat-card-header>
+          <mat-card-title>
+            <h2>job site update</h2>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+          <a mat-button color="primary" [routerLink]="['/home-list']" title="close"><span class="fa fa-close"></span> close</a>
+          <a mat-button color="primary" [routerLink]="['/home-read', entity.PersonIdentifierTypeId]" title="read"><span class="fa fa-eye"></span> read</a>
+          <a mat-button disabled color="primary" [routerLink]="['/home-update', entity.PersonIdentifierTypeId]" title="update"><span class="fa fa-edit"></span> update</a>
+          <a mat-button color="primary" [routerLink]="['/home-delete', entity.PersonIdentifierTypeId]" title="delete"><span class="fa fa-trash"></span> delete</a>
+        </mat-card-actions>
+        <mat-card-content>
+          <app-home-edit [entity]="entity" [DisableKey]="true"></app-home-edit>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="Save()" title="save"><span class="fa fa-save"></span> save</button>
+          <button mat-button color="warn" (click)="Reset()" title="reset"><span class="fa fa-refresh"></span> reset</button>
+        </mat-card-actions>
+      </mat-card>
+      
+      <p-growl [(value)]="messageSvc.msgs"></p-growl>
+      

@@ -1,0 +1,83 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h2>Home Measurments Component</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p-dataTable [value]="cars" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true"
+      rows="15" [responsive]="true">
+      <p-header>Job Sites</p-header>
+      <p-column field="Title" header="Title" [sortable]="true"></p-column>
+      <p-column field="Latitude" header="Latitude" [sortable]="true"></p-column>
+      <p-column field="Longitude" header="Longitude" [sortable]="true"></p-column>
+      <p-column field="TotalWeight" header="TotalWeight" [sortable]="true"></p-column>
+      <p-column field="PipeDiameter" header="PipeDiameter" [sortable]="true"></p-column>
+      <p-column field="ThreadType" header="ThreadType" [sortable]="true"></p-column>
+      <p-footer>
+        <div class="ui-helper-clearfix" style="width:100%">
+          <button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button>
+        </div>
+      </p-footer>
+    </p-dataTable>
+
+    <p-dialog header="Job Site Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+      <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="job">
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-4">
+            <label for="Title">Title</label>
+          </div>
+          <div class="ui-grid-col-8">
+            <input pInputText id="Title" [(ngModel)]="job.Title" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-4">
+            <label for="Latitude">Latitude</label>
+          </div>
+          <div class="ui-grid-col-8">
+            <input pInputText id="Latitude" [(ngModel)]="job.Latitude" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-4">
+            <label for="Longitude">Longitude</label>
+          </div>
+          <div class="ui-grid-col-8">
+            <input pInputText id="Longitude" [(ngModel)]="job.Longitude" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-4">
+            <label for="TotalWeight">TotalWeight</label>
+          </div>
+          <div class="ui-grid-col-8">
+            <input pInputText id="TotalWeight" [(ngModel)]="job.TotalWeight" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-4">
+            <label for="PipeDiameter">PipeDiameter</label>
+          </div>
+          <div class="ui-grid-col-8">
+            <input pInputText id="PipeDiameter" [(ngModel)]="job.PipeDiameter" />
+          </div>
+        </div>
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-4">
+            <label for="ThreadType">ThreadType</label>
+          </div>
+          <div class="ui-grid-col-8">
+            <input pInputText id="ThreadType" [(ngModel)]="job.ThreadType" />
+          </div>
+        </div>
+      </div>
+      <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+          <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+          <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+        </div>
+      </p-footer>
+    </p-dialog>
+  </mat-card-content>
+</mat-card>

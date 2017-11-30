@@ -1,0 +1,34 @@
+<div *ngIf="entity">
+  <form *ngIf="form" [formGroup]="form">
+    <div>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Title" maxlength="100" formControlName="Title" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Latitude" formControlName="Latitude" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Longitude" formControlName="Longitude" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="number" placeholder="TotalWeight" formControlName="TotalWeight" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="number" placeholder="PipeDiameter" formControlName="PipeDiameter" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="number" placeholder="ThreadType" formControlName="ThreadType" />
+      </mat-form-field>
+    </div>
+  </form>
+</div>
