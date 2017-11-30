@@ -8,6 +8,15 @@ namespace PipeTally.Services
     {
         private readonly IDataModel _data;
 
+        private void Load(Measurement entity)
+        {
+            if (entity.JobSite == null)
+            {
+                entity.JobSite = _data.JobSites.Find(entity.JobSiteId);
+                entity.JobSiteId = (entity.JobSite?.JobSiteId) ?? 0;
+            }
+        }
+
         public MeasurementService(IDataModel data)
         {
             _data = data;
@@ -16,7 +25,10 @@ namespace PipeTally.Services
         public Measurement Create(Measurement entity)
         {
             if (entity == null) { throw new ArgumentNullException(nameof(entity)); }
+            Load(entity);
+
             _data.Measurements.Add(entity);
+
             return entity;
         }
 
@@ -28,6 +40,7 @@ namespace PipeTally.Services
         public bool Update(Measurement entity)
         {
             if (entity == null) { throw new ArgumentNullException(nameof(entity)); }
+            Load(entity);
 
             var r = _data.Measurements.Find(entity.MeasurementId);
             if (r == null) { return false; }
