@@ -1,0 +1,50 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$devon-app-primary: mat-palette($mat-grey, 800, 700, 900);
+$devon-app-accent:  mat-palette($mat-deep-orange, A400, A200, A700);
+
+// The warn palette is optional (defaults to red).
+$devon-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$devon-app-theme: mat-light-theme($devon-app-primary, $devon-app-accent, $devon-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($devon-app-theme);
+
+header > h1 {
+    padding-left: 50px;
+    background-image: url("./logo-small.png");
+    background-size: 50px 29px;
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0px 2px;
+}
+
+header > h1::before {
+    content: " | ";
+}
+
+.busy {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    background-image: url("./page-loading.gif");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center;
+    z-index: 9999;
+    color: white;
+}

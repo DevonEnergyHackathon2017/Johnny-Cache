@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <header>
+    <h1>Pipe Tally</h1>
+  </header>
+  <span style="flex: 1 1 auto;"></span>
+  <nav *ngIf="TokensCached">
+    <a mat-button [routerLink]="['']">applications</a>
+  </nav>
+</mat-toolbar>
+
+<main *ngIf="TokensCached">
+  <router-outlet></router-outlet>
+</main>
+
+<div class="busy" [hidden]="!busySvc.IsBusy()"></div>
