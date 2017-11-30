@@ -4,7 +4,7 @@ export class JobSiteModel {
     public Latitude: number;
     public Longitude: number;
     public TotalWeight: number;
-    public Grade: number;
+    public Grade: string;
     public InnerDiameter: number;
     public OuterDiameter: number;
     public ThreadType: string;

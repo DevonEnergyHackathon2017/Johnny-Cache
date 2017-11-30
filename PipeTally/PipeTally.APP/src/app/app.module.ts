@@ -26,12 +26,21 @@ import { JobSiteCreateComponent } from "./areas/job-site/job-site-create.compone
 import { JobSiteReadComponent } from "./areas/job-site/job-site-read.component";
 import { JobSiteUpdateComponent } from "./areas/job-site/job-site-update.component";
 import { JobSiteDeleteComponent } from "./areas/job-site/job-site-delete.component";
+import { MeasurementCreateComponent } from "./areas/measurements/measurement-create.component";
+import { MeasurementDeleteComponent } from "./areas/measurements/measurement-delete.component";
+import { MeasurementEditComponent } from "./areas/measurements/shared/measurement-edit.component";
+import { MeasurementListComponent } from "./areas/measurements/measurement-list.component";
+import { MeasurementReadComponent } from "./areas/measurements/measurement-read.component";
+import { MeasurementUpdateComponent } from "./areas/measurements/measurement-update.component";
+import { MeasurementViewComponent } from "./areas/measurements/shared/measurement-view.component";
 
 
 @NgModule({
   declarations: [
     AppComponent, FullLayoutComponent,
-    JobSiteViewComponent, JobSiteEditComponent, JobSiteListComponent, JobSiteCreateComponent, JobSiteReadComponent, JobSiteUpdateComponent, JobSiteDeleteComponent
+    JobSiteViewComponent, JobSiteEditComponent, JobSiteListComponent, JobSiteCreateComponent, JobSiteReadComponent, JobSiteUpdateComponent, JobSiteDeleteComponent, 
+    MeasurementCreateComponent,MeasurementDeleteComponent,MeasurementEditComponent,MeasurementListComponent, MeasurementReadComponent,MeasurementUpdateComponent,
+    MeasurementViewComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +50,8 @@ import { JobSiteDeleteComponent } from "./areas/job-site/job-site-delete.compone
     AppRoutingModule,
 
     ButtonModule, DataTableModule, GrowlModule, InputTextareaModule, InputTextModule, MenubarModule, MenuModule, MessagesModule, PanelMenuModule, PanelModule, SharedModule, SpinnerModule, TieredMenuModule,
-    MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule, MatSelectModule, MatTabsModule, MatToolbarModule, MatSidenavModule
+    MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule, MatSelectModule, MatTabsModule, MatToolbarModule, MatSidenavModule,
+    
   ],
   providers: [
     BusyService, MessageService,

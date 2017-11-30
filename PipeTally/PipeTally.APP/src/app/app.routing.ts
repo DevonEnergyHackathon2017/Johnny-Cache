@@ -8,6 +8,11 @@ import { JobSiteCreateComponent } from "./areas/job-site/job-site-create.compone
 import { JobSiteReadComponent } from "./areas/job-site/job-site-read.component";
 import { JobSiteUpdateComponent } from "./areas/job-site/job-site-update.component";
 import { JobSiteDeleteComponent } from "./areas/job-site/job-site-delete.component";
+import { MeasurementCreateComponent } from "./areas/measurements/measurement-create.component";
+import { MeasurementReadComponent } from "./areas/measurements/measurement-read.component";
+import { MeasurementUpdateComponent } from "./areas/measurements/measurement-update.component";
+import { MeasurementListComponent } from "./areas/measurements/measurement-list.component";
+import { MeasurementDeleteComponent } from "./areas/measurements/measurement-delete.component";
 
 export const routes: Routes = [
   {
@@ -19,7 +24,14 @@ export const routes: Routes = [
       { path: 'job-site-create', component: JobSiteCreateComponent },
       { path: 'job-site-read/:id', component: JobSiteReadComponent },
       { path: 'job-site-update/:id', component: JobSiteUpdateComponent },
-      { path: 'job-site-delete/:id', component: JobSiteDeleteComponent }
+      { path: 'job-site-delete/:id', component: JobSiteDeleteComponent },
+      { path: 'job-site-list', component: JobSiteListComponent },
+
+      { path: 'measurement-create', component: MeasurementCreateComponent },
+      { path: 'measurement-read/:id', component: MeasurementReadComponent },
+      { path: 'measurement-update/:id', component: MeasurementUpdateComponent },
+      { path: 'measurement-delete/:id', component: MeasurementDeleteComponent },
+      { path: 'measurement-list', component: MeasurementListComponent }
     ]
   }
 ];

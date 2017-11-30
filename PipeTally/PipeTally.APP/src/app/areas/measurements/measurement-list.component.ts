@@ -3,20 +3,20 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Message } from "primeng/components/common/api";
 import { MessageService } from "../../services/message.service";
 import { BusyService } from "../../services/busy.service";
-import { JobSiteModel } from "../../models/job-site-model";
-import { JobSiteService } from "../../services/job-site.service";
+import { MeasurementModel } from "../../models/measurement-model";
+import { MeasurementService } from "../../services/measurement.service";
 
 
 @Component({
-  selector: "app-job-site-list",
-  templateUrl: "./job-site-list.component.html"
+  selector: "app-measurement-list",
+  templateUrl: "./measurement-list.component.html"
 })
-export class JobSiteListComponent implements OnInit {
-  public JobSiteType: JobSiteModel[];
+export class MeasurementListComponent implements OnInit {
+  public MeasurementType: MeasurementModel[];
 
   constructor(
     private _router: Router,
-    private _jobSiteSvc: JobSiteService,
+    private _jobSiteSvc: MeasurementService,
     public messageSvc: MessageService,
     private _busySvc: BusyService
   ) { }
@@ -28,12 +28,12 @@ export class JobSiteListComponent implements OnInit {
       .Exec()
       .subscribe(x => {
         this._busySvc.SetFree();
-        this.JobSiteType = x;
-        this.messageSvc.AddInfo("job site list", x.length + " items found.");
+        this.MeasurementType = x;
+        this.messageSvc.AddInfo("measurement list", x.length + " items found.");
       },
       error => {
         this._busySvc.SetFree();
-        this.messageSvc.AddError("job site list", error);
+        this.messageSvc.AddError("measurement list", error);
       });
   }
 
@@ -44,7 +44,7 @@ export class JobSiteListComponent implements OnInit {
   }
 
   onRowSelect(event) {
-    var jobIdentType = event.data as JobSiteModel;
-    this._router.navigate(["/job-site-read", jobIdentType.JobSiteId]);
+    var jobIdentType = event.data as MeasurementModel;
+    this._router.navigate(["/measurement-read", jobIdentType.MeasurementId]);
   }
 }

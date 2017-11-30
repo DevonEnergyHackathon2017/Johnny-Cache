@@ -1,0 +1,22 @@
+<mat-card *ngIf="entity">
+  <mat-card-header>
+    <mat-card-title>
+      <h2>measurement read</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-actions>
+    <a mat-button color="primary" [routerLink]="['/measurement-list']" title="close">
+      <span class="fa fa-close"></span> close</a>
+    <a mat-button disabled color="primary" [routerLink]="['/measurement-read', entity.MeasurementId]" title="read">
+      <span class="fa fa-eye"></span> read</a>
+    <a mat-button color="primary" [routerLink]="['/measurement-update', entity.MeasurementId]" title="update">
+      <span class="fa fa-edit"></span> update</a>
+    <a mat-button color="primary" [routerLink]="['/measurement-delete', entity.MeasurementId]" title="delete">
+      <span class="fa fa-trash"></span> delete</a>
+  </mat-card-actions>
+  <mat-card-content>
+    <app-measurement-view [entity]="entity"></app-measurement-view>
+  </mat-card-content>
+</mat-card>
+
+<p-growl [(value)]="messageSvc.msgs"></p-growl>
