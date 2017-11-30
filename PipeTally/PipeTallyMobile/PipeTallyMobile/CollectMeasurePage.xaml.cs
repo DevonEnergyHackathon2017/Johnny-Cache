@@ -62,6 +62,20 @@ namespace PipeTallyMobile
 
         private void OnFinished(object sender, EventArgs e)
         {
+            //if they entered more data and didn't hit "advance", go ahead and capture to save.
+            var fullLength = !string.IsNullOrWhiteSpace(this.txtFullLength.Text);
+            var threadLength = !string.IsNullOrWhiteSpace(this.txtThreadLength.Text);
+
+            if (fullLength && threadLength)
+            {
+                //save the measurement and continue to next pipe.
+                var measure = new Measurement();
+                measure.FullLength = double.Parse(txtFullLength.Text);
+                measure.ThreadLength = double.Parse(txtThreadLength.Text);
+                measure.Order = _batchMeasures.Count() + 1;
+                _batchMeasures.Add(measure);
+            }
+
             //save data. Nav back to empty nav stack.
             App.Database.StoreFullBatch(_batch, _batchMeasures);
             this.Navigation.PopToRootAsync(true);

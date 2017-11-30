@@ -61,15 +61,22 @@ namespace PipeTallyMobile
             var batch = new MeasureBatch();
 
             //gather data
-            batch.Grade = pckGrade.SelectedItem.ToString();
-            batch.InnerDiameter = float.Parse(pckInnerDiam.SelectedItem.ToString());
-            batch.OuterDiameter = float.Parse(pckOuterDiam.SelectedItem.ToString());
-            batch.TopThread = pckThread.SelectedItem.ToString();
-            batch.Weight = int.Parse(pckWeight.SelectedItem.ToString());
-            //batch.Measurements = new List<Measurement>();
+            try
+            {
+                batch.Grade = pckGrade.SelectedItem.ToString();
+                batch.InnerDiameter = float.Parse(pckInnerDiam.SelectedItem.ToString());
+                batch.OuterDiameter = float.Parse(pckOuterDiam.SelectedItem.ToString());
+                batch.TopThread = pckThread.SelectedItem.ToString();
+                batch.Weight = int.Parse(pckWeight.SelectedItem.ToString());
+                //batch.Measurements = new List<Measurement>();
 
-            var measurePage = new CollectMeasurePage(batch);
-            this.Navigation.PushAsync(measurePage, true);
+                var measurePage = new CollectMeasurePage(batch);
+                this.Navigation.PushAsync(measurePage, true);
+            }
+            catch(Exception ex)
+            {
+                return;
+            }
         }
     }
 }
