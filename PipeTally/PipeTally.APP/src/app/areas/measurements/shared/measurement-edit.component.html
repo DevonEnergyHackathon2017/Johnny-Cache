@@ -2,7 +2,7 @@
   <form *ngIf="form" [formGroup]="form">
     <div>
       <mat-form-field>
-        <input matInput type="text" placeholder="Joint" maxlength="100" formControlName="Joint" />
+        <input matInput type="number" placeholder="Joint" maxlength="100" formControlName="Joint" />
       </mat-form-field>
     </div>
     <div>
@@ -26,9 +26,8 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field>
-        <input matInput type="string" placeholder="IsDamaged" formControlName="IsDamaged" /> <!--This needs updated -->
-      </mat-form-field>
+      <!--This needs updated -->
+      <mat-checkbox formControlName="IsDamaged">IsDamaged</mat-checkbox>
     </div>
   </form>
 </div>

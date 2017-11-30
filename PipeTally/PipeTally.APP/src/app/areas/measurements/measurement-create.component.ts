@@ -25,7 +25,7 @@ export class MeasurementCreateComponent implements OnInit {
 
   public Save() {
     if (!this._edit.ReadForm()) { return; }
-    
+    this.entity.JobSiteId = 
     this._busySvc.SetBusy();
     this._jobSiteService.Post(this.entity)
       .subscribe(x => {

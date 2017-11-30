@@ -1,7 +1,8 @@
 import { Component, Input } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { MeasurementModel } from "../../../models/measurement-model";
- 
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 @Component({
   selector: "app-measurement-edit",
   templateUrl: "./measurement-edit.component.html"
