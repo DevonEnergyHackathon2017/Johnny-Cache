@@ -1,8 +1,4 @@
 ﻿using Owin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace PipeTally
@@ -13,7 +9,9 @@ namespace PipeTally
         {
             var config = new HttpConfiguration();
 
-          
+            ConfigureCors(app);
+            ConfigureDI(app, config);
+            ConfigureRouting(app, config);
         }
     }
 }
