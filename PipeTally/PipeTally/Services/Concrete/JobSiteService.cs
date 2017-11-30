@@ -1,13 +1,28 @@
-﻿using PipeTally.DataModel;
-using System;
+﻿using System;
 using System.Linq;
+using PipeTally.DataModel;
+using PipeTally.Services.Abstract;
 
-namespace PipeTally.Services
+namespace PipeTally.Services.Concrete
 {
     public class JobSiteService : IJobSiteService
     {
         private readonly IDataModel _data;
         private readonly IMeasurementService _measurementSvc;
+
+        private void ProcessMeasurement(Measurement entity)
+        {
+            if (entity == null) { return; }
+
+            if (_data.Measurements.Any(x => x.MeasurementId == entity.MeasurementId))
+            {
+                if (!_measurementSvc.Update(entity)) { throw new ApplicationException($"Measurement {entity.MeasurementId} not found."); }
+            }
+            else
+            {
+                _measurementSvc.Create(entity);
+            }
+        }
 
         public JobSiteService(IDataModel data, IMeasurementService measurementSvc)
         {
@@ -19,6 +34,15 @@ namespace PipeTally.Services
         {
             if (entity == null) { throw new ArgumentNullException(nameof(entity)); }
             _data.JobSites.Add(entity);
+
+            if (entity.Measurements != null)
+            {
+                foreach(var measurement in entity.Measurements)
+                {
+                    _measurementSvc.Create(measurement);
+                }
+            }
+
             return entity;
         }
 
@@ -34,6 +58,23 @@ namespace PipeTally.Services
             var r = _data.JobSites.Find(entity.JobSiteId);
             if (r == null) { return false; }
             _data.Entry(r).CurrentValues.SetValues(entity);
+
+            if (entity.Measurements != null)
+            {
+                foreach (var measurement in entity.Measurements)
+                {
+                    measurement.JobSiteId = r.JobSiteId;
+                    measurement.JobSite = r;
+                    ProcessMeasurement(measurement);
+                }
+
+                var newMeasurementIds = entity.Measurements.Select(x => x.MeasurementId);
+                var deleteMeasurements = r.Measurements.Where(x => !newMeasurementIds.Contains(x.MeasurementId)).ToArray();
+                foreach (var measurement in deleteMeasurements)
+                {
+                    _measurementSvc.Delete(measurement.MeasurementId);
+                }
+            }
 
             return true;
         }

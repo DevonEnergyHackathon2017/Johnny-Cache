@@ -1,7 +1,7 @@
-﻿using PipeTally.DataModel;
-using System.Linq;
+﻿using System.Linq;
+using PipeTally.DataModel;
 
-namespace PipeTally.Services
+namespace PipeTally.Services.Abstract
 {
     public interface IJobSiteService
     {

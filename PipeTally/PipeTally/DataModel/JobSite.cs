@@ -24,9 +24,14 @@ namespace PipeTally.DataModel
 
         public double? Longitude { get; set; }
 
-        public double? TotalWeight { get; set; }
+        public int? TotalWeight { get; set; }
 
-        public double? PipeDiameter { get; set; }
+        [StringLength(100)]
+        public string Grade { get; set; }
+
+        public double? InnerDiameter { get; set; }
+
+        public double? OuterDiameter { get; set; }
 
         [StringLength(100)]
         public string ThreadType { get; set; }
