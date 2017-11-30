@@ -25,17 +25,18 @@ namespace PipeTallyMobile.Services
 
         private async static Task<bool> SendMeasurements(string svcURL, MeasureBatch batch, List<Measurement> measurements)
         {
-            var endpoint = svcURL + "/JobSite";
+            var endpoint = svcURL + "JobSite";
             HttpClient client = new HttpClient();
             var data = Conversion(batch, measurements);
+            
             var json = JsonConvert.SerializeObject(data);
-            var content = new StringContent(json);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var result = false;
             try
             {
                 var response = await client.PostAsync(endpoint, content);
-                if(response.StatusCode == System.Net.HttpStatusCode.OK)
+                if(response.StatusCode == System.Net.HttpStatusCode.OK || response.StatusCode == System.Net.HttpStatusCode.Created)
                 {
                     result = true;
                 }
