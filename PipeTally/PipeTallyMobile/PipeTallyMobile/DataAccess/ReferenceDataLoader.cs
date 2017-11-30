@@ -16,6 +16,12 @@ namespace PipeTallyMobile.DataAccess
 
         }
 
+        public static List<string> BuildSiteNameList()
+        {
+            return new List<string>(new string[]
+            { "Fox River 9 - Pad 3", "Beta 8 - Pad 2", "Cactus 13 - Pad 1", "Cactus 14 - Pad 1", "Echo 2 - Pad 1", "Sierra 13 - Pad 2" });
+        }
+
         public static List<string> BuildWeightList()
         {
             return new List<string>(new string[]

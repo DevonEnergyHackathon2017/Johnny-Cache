@@ -1,5 +1,4 @@
-﻿#define local
-namespace PipeTallyMobile.Models
+﻿namespace PipeTallyMobile.Models
 { 
     public class GlobalSettings
     {
@@ -9,10 +8,10 @@ namespace PipeTallyMobile.Models
         public GlobalSettings()
         {
             UseImperial = true;
-#if local
+#if LOCAL
             ServiceURL = "http://localhost:65095";
 #else
-            ServiceURL = "";
+            ServiceURL = "http://jc-pipetallyapi.azurewebsites.net/";
 #endif
         }
     }
