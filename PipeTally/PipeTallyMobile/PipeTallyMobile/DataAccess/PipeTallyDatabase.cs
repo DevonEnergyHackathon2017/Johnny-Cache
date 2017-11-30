@@ -17,13 +17,12 @@ namespace PipeTallyMobile.DataAccess
             try
             {
                 _database = new SQLiteAsyncConnection(dbPath);
-                
-                _database.CreateTableAsync<Measurement>().Wait();
-                _database.CreateTableAsync<MeasureBatch>().Wait();
+                _database.CreateTablesAsync<Measurement, MeasureBatch>().Wait();
             }
             catch(AggregateException aex)
             {
                 throw;
+
             }
             catch(Exception ex)
             {

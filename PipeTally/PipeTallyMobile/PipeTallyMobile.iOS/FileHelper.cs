@@ -13,20 +13,20 @@ using PipeTallyMobile.iOS;
 [assembly: Dependency(typeof(FileHelper))]
 namespace PipeTallyMobile.iOS
 {
-        public class FileHelper : IFileHelper
+    public class FileHelper : IFileHelper
+    {
+        public string GetLocalFilePath(string filename)
         {
-            public string GetLocalFilePath(string filename)
+            string docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string libFolder = Path.Combine(docFolder, "..", "Library", "Databases");
+
+            if (!Directory.Exists(libFolder))
             {
-                string docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                string libFolder = Path.Combine(docFolder, "..", "Library", "Databases");
-
-                if (!Directory.Exists(libFolder))
-                {
-                    Directory.CreateDirectory(libFolder);
-                }
-
-                return Path.Combine(libFolder, filename);
+                Directory.CreateDirectory(libFolder);
             }
+
+            return Path.Combine(libFolder, filename);
         }
     }
+
 }
