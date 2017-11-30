@@ -40,13 +40,14 @@ namespace PipeTallyMobile.Services
         private IEnumerable<MeasurementObject> convertMeasurements(List<Measurement> measurements)
         {
             var measurmentObjectList = new List<MeasurementObject>();
+            int jointNum = Int32.MaxValue;
             foreach (var measurement in measurements)
             {
                 measurmentObjectList.Add(new MeasurementObject
                 {
                     //IsDamaged = measurement.
                     ItemDescription = "Casing Joints",
-                    //Joint = measurement.
+                    Joint = --jointNum,
                     PipeLength = measurement.FullLength,
                     ThreadLength = measurement.ThreadLength,
                     //TopThread = measurement.
