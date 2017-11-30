@@ -9,8 +9,8 @@ namespace PipeTallyMobile.Models
         public GlobalSettings()
         {
             UseImperial = true;
-#if (local)
-            ServiceURL = "";
+#if local
+            ServiceURL = "http://localhost:65095";
 #else
             ServiceURL = "";
 #endif
