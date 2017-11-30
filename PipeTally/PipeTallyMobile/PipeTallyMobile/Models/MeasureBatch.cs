@@ -18,7 +18,7 @@ namespace PipeTallyMobile.Models
         public float I_D { get; set; }
         public string TopThread { get; set; }
 
-        [Ignore] //have SqlLite ignore this. It's not EF 
-        public List<Measurement> Measurements {get;set;}
+        //[Ignore] //have SqlLite ignore this. It's not EF 
+        //public List<Measurement> Measurements {get;set;}
     }
 }

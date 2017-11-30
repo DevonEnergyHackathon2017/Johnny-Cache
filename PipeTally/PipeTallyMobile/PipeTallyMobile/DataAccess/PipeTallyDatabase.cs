@@ -39,7 +39,7 @@ namespace PipeTallyMobile.DataAccess
         {
             var batch = await _database.GetAsync<MeasureBatch>(batchID);
             var measures = await _database.Table<Measurement>().Where(m => m.MeasureBatchID == batchID).ToListAsync();
-            batch.Measurements = new List<Measurement>(measures);
+            //batch.Measurements = new List<Measurement>(measures);
 
             return batch;
         }
@@ -47,7 +47,7 @@ namespace PipeTallyMobile.DataAccess
         public void StoreFullBatch(MeasureBatch batch)
         {
             _database.InsertOrReplaceAsync(batch);
-            _database.InsertAllAsync(batch.Measurements);
+            //_database.InsertAllAsync(batch.Measurements);
         }
     }
 }

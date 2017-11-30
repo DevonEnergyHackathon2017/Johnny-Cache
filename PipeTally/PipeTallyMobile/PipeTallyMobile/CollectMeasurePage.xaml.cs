@@ -14,12 +14,14 @@ namespace PipeTallyMobile
     public partial class CollectMeasurePage : ContentPage
     {
         private MeasureBatch _batch;
+        private List<Measurement> _batchMeasures;
 
         public CollectMeasurePage(MeasureBatch batch)
         {
             InitializeComponent();
             this.Appearing += CollectMeasurePage_Appearing;
             _batch = batch;
+            _batchMeasures = new List<Measurement>();
         }
 
         private void CollectMeasurePage_Appearing(object sender, EventArgs e)
@@ -46,8 +48,8 @@ namespace PipeTallyMobile
                 var measure = new Measurement();
                 measure.FullLength = double.Parse(txtFullLength.Text);
                 measure.ThreadLength = double.Parse(txtThreadLength.Text);
-                measure.Order = _batch.Measurements.Count() + 1;
-                _batch.Measurements.Add(measure);
+                measure.Order = _batchMeasures.Count() + 1;
+                _batchMeasures.Add(measure);
 
                 App.Database.StoreFullBatch(_batch);
 
@@ -57,7 +59,7 @@ namespace PipeTallyMobile
                 txtFullLength.Focus();
             }
 
-            this.lblCount.Text = $"Collected {_batch.Measurements.Count()} measurements";
+            this.lblCount.Text = $"Collected {_batchMeasures.Count()} measurements";
         }
 
         private void OnFinished(object sender, EventArgs e)

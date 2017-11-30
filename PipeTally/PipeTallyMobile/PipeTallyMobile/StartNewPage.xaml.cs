@@ -28,7 +28,7 @@ namespace PipeTallyMobile
             batch.OD = float.Parse(txtOD.Text);
             batch.TopThread = txtThread.Text;
             batch.Weight = int.Parse(txtWeight.Text);
-            batch.Measurements = new List<Measurement>();
+            //batch.Measurements = new List<Measurement>();
 
             var measurePage = new CollectMeasurePage(batch);
             this.Navigation.PushAsync(measurePage, true);
