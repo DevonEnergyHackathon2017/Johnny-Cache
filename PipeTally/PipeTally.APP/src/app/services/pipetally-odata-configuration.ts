@@ -5,7 +5,6 @@ import { environment } from "../../environments/environment";
 @Injectable()
 export class PipeTallyODataConfiguration extends ODataConfiguration {
     public baseUrl: string;
-    public resource: string;
 
     constructor() {
         super();
@@ -20,7 +19,6 @@ export class PipeTallyODataConfiguration extends ODataConfiguration {
             var config = environment.odataConfig[i];
             if (config.name === "PipeTally") {
                 this.baseUrl = config.baseUrl;
-                this.resource = config.resource;
                 found = true;
             } else {
                 i++;
