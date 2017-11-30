@@ -43,6 +43,7 @@
     </Compile>
     <Compile Include="DataAccess\IFileHelper.cs" />
     <Compile Include="DataAccess\PipeTallyDatabase.cs" />
+    <Compile Include="DataAccess\ReferenceDataLoader.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

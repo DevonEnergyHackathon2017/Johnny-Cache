@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Collections;
+using PipeTallyMobile.DataAccess;
 
 namespace PipeTallyMobile
 {
@@ -18,43 +19,12 @@ namespace PipeTallyMobile
         {
             InitializeComponent();
 
-            pckGrade.ItemsSource = BuildGradeList();
-            pckThread.ItemsSource = BuildThreadList();
-            pckInnerDiam.ItemsSource = BuildInnerDiamList();
-            pckOuterDiam.ItemsSource = BuildOuterDiamList();
-            pckWeight.ItemsSource = BuildWeightList();
-        }
-
-        private IList BuildWeightList()
-        {
-            return new List<string>(new string[]
-            { "18", "17", "16", "15", "14" });
-        }
-
-        private IList BuildOuterDiamList()
-        {
-            return new List<string>(new string[]
-            { "7.0","6.5", "6.0", "5.5", "5.0", "4.5" });
-        }
-
-        private IList BuildInnerDiamList()
-        {
-            return new List<string>(new string[]
-             { "6.82","6.21", "5.89", "5.22", "4.89", "4.27" });
-        }
-
-        private List<string> BuildThreadList()
-        {
-            return new List<string>(new string[]
-            { "CDC-HTQ", "Buttress" });
-        }
-
-        private List<string> BuildGradeList()
-        {
-            return new List<string>(new string[]
-            { "P110RY", "P110EC", "P110MS", "Q125HC" });
-
-        }
+            pckGrade.ItemsSource = ReferenceDataLoader.BuildGradeList();
+            pckThread.ItemsSource = ReferenceDataLoader.BuildThreadList();
+            pckInnerDiam.ItemsSource = ReferenceDataLoader.BuildInnerDiamList();
+            pckOuterDiam.ItemsSource = ReferenceDataLoader.BuildOuterDiamList();
+            pckWeight.ItemsSource = ReferenceDataLoader.BuildWeightList();
+        } 
 
         private void OnStartMeasure(object sender, EventArgs e)
         {
