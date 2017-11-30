@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PipeTallyMobile.StartNewPage">
+    <ContentPage.Content>
+        
+        <Grid x:Name="AddGrid" Style="Width:85%">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Enter measurement session details" />
+            
+            <Label Grid.Row="1" Grid.Column="0" Text="OD:"></Label>
+            <Label Grid.Row="2" Grid.Column="0" Text="Weight:"></Label>
+            <Label Grid.Row="3" Grid.Column="0" Text="Grade:"></Label>
+            <Label Grid.Row="4" Grid.Column="0" Text="ID:"></Label>
+            <Label Grid.Row="5" Grid.Column="0" Text="Top Thread:"></Label>
+            <Entry Grid.Row="1" Grid.Column="1"></Entry>
+            <Entry Grid.Row="2" Grid.Column="1"></Entry>
+            <Entry Grid.Row="3" Grid.Column="1"></Entry>
+            <Entry Grid.Row="4" Grid.Column="1"></Entry>
+            <Entry Grid.Row="5" Grid.Column="1"></Entry>
+
+            <Button Grid.Row="6" Grid.ColumnSpan="2" Text="Measure Casing" Clicked="OnStartMeasure"></Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

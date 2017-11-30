@@ -7,5 +7,7 @@
 	<Label Text="Welcome to Xamarin Forms!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
+    <Button  Text="Start new measuring session"
+            Clicked="OnStartNewSession"></Button>
 
 </ContentPage>
