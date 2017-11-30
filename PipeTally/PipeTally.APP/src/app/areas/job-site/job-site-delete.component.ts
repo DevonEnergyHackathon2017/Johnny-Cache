@@ -7,10 +7,10 @@ import { JobSiteModel } from "../../models/job-site-model";
 import { JobSiteService } from "../../services/job-site.service";
 
 @Component({
-  selector: "app-home-delete",
-  templateUrl: "./home-delete.component.html"
+  selector: "app-job-site-delete",
+  templateUrl: "./job-site-delete.component.html"
 })
-export class HomeDeleteComponent implements OnInit {
+export class JobSiteDeleteComponent implements OnInit {
   public msgs: Message[] = [];
   public entity: JobSiteModel;
 
@@ -48,7 +48,7 @@ export class HomeDeleteComponent implements OnInit {
       .subscribe(x => {
         this._busySvc.SetFree();
         this.messageSvc.AddSuccess("job site delete", "The job site was deleted successfully.");
-        this._router.navigate(["/home-list"]);
+        this._router.navigate(["/job-site-list"]);
       },
       error => {
         this._busySvc.SetFree();

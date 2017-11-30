@@ -4,13 +4,13 @@ import { MessageService } from "../../services/message.service";
 import { BusyService } from "../../services/busy.service";
 import { JobSiteModel } from "../../models/job-site-model";
 import { JobSiteService } from "../../services/job-site.service";
-import { HomeEditComponent } from "./shared/home-edit.component";
+import { JobSiteEditComponent } from "./shared/job-site-edit.component";
 
 @Component({
-  selector: "app-home-update",
-  templateUrl: "./home-update.component.html"
+  selector: "app-job-site-update",
+  templateUrl: "./job-site-update.component.html"
 })
-export class HomeUpdateComponent implements OnInit {
+export class JobSiteUpdateComponent implements OnInit {
   public entity: JobSiteModel;
 
   constructor(
@@ -20,7 +20,7 @@ export class HomeUpdateComponent implements OnInit {
     private _busySvc: BusyService
   ) { }
 
-  @ViewChild(HomeEditComponent) private _edit: HomeEditComponent;
+  @ViewChild(JobSiteEditComponent) private _edit: JobSiteEditComponent;
 
   ngOnInit() {
     this._activatedRoute.params

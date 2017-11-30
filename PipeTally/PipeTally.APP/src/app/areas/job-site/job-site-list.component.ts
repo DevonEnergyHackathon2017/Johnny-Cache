@@ -8,10 +8,10 @@ import { JobSiteService } from "../../services/job-site.service";
 
 
 @Component({
-  selector: "app-home-list",
-  templateUrl: "./home-list.component.html"
+  selector: "app-job-site-list",
+  templateUrl: "./job-site-list.component.html"
 })
-export class HomeListComponent implements OnInit {
+export class JobSiteListComponent implements OnInit {
   public JobSiteType: JobSiteModel[];
 
   constructor(
@@ -45,6 +45,6 @@ export class HomeListComponent implements OnInit {
 
   onRowSelect(event) {
     var jobIdentType = event.data as JobSiteModel;
-    this._router.navigate(["/home-type-read", jobIdentType.JobSiteId]);
+    this._router.navigate(["/job-site-type-read", jobIdentType.JobSiteId]);
   }
 }

@@ -1,12 +1,12 @@
 import { Component, Input } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { JobSiteModel } from "../../../models/job-site-model";
-
+ 
 @Component({
-  selector: "app-home-edit",
-  templateUrl: "./home-edit.component.html"
+  selector: "app-job-site-edit",
+  templateUrl: "./job-site-edit.component.html"
 })
-export class HomeEditComponent {
+export class JobSiteEditComponent {
   public form: FormGroup;
 
   constructor() {
@@ -15,7 +15,9 @@ export class HomeEditComponent {
       "Latitude": new FormControl(null, [Validators.required]),
       "Longitude": new FormControl(null, [Validators.required]),
       "TotalWeight": new FormControl(null, [Validators.required]),
-      "PipeDiameter": new FormControl(null, [Validators.required]),
+      "Grade": new FormControl(null, [Validators.required]),
+      "InnerDiameter": new FormControl(null, [Validators.required]),
+      "OuterDiameter": new FormControl(null, [Validators.required]),
       "ThreadType": new FormControl(null, [Validators.required]),      
     });
   }
@@ -27,7 +29,9 @@ export class HomeEditComponent {
     this.form.get("Latitude").setValue(this._entity.Latitude);
     this.form.get("Longitude").setValue(this._entity.Longitude);
     this.form.get("TotalWeight").setValue(this._entity.TotalWeight);
-    this.form.get("PipeDiameter").setValue(this._entity.PipeDiameter);
+    this.form.get("Grade").setValue(this._entity.Grade);
+    this.form.get("InnerDiameter").setValue(this._entity.InnerDiameter);
+    this.form.get("OuterDiameter").setValue(this._entity.OuterDiameter);
     this.form.get("ThreadType").setValue(this._entity.ThreadType);
     
     return true;
@@ -41,7 +45,9 @@ export class HomeEditComponent {
     this._entity.Latitude = this.form.get("Latitude").value;
     this._entity.Longitude = this.form.get("Longitude").value;
     this._entity.TotalWeight = this.form.get("TotalWeight").value;
-    this._entity.PipeDiameter = this.form.get("PipeDiameter").value;
+    this._entity.Grade = this.form.get("Grade").value;
+    this._entity.InnerDiameter = this.form.get("InnerDiameter").value;
+    this._entity.OuterDiameter = this.form.get("OuterDiameter").value;
     this._entity.ThreadType = this.form.get("ThreadType").value;
 
     return true;

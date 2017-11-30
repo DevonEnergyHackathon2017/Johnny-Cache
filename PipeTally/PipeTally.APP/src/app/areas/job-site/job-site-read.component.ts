@@ -6,10 +6,10 @@ import { JobSiteService } from "../../services/job-site.service";
 import { BusyService } from "../../services/busy.service";
 
 @Component({
-  selector: "app-home-read",
-  templateUrl: "./home-read.component.html"
+  selector: "app-job-site-read",
+  templateUrl: "./job-site-read.component.html"
 })
-export class HomeReadComponent implements OnInit {
+export class JobSiteReadComponent implements OnInit {
   public entity: JobSiteModel;
 
   constructor(
@@ -18,9 +18,6 @@ export class HomeReadComponent implements OnInit {
     public messageSvc: MessageService,
     private _busySvc: BusyService
   ) { }
-
-  public CanUpdate: boolean = false;
-  public CanDelete: boolean = false;
 
   ngOnInit() {
     this._activatedRoute.params
