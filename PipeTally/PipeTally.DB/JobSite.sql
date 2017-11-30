@@ -4,8 +4,10 @@
 	Title NVARCHAR(100),
 	Latitude FLOAT,
 	Longitude FLOAT,
-	TotalWeight FLOAT,
-	PipeDiameter FLOAT,
+	TotalWeight INT,
+	Grade NVARCHAR(100),
+	InnerDiameter FLOAT,
+	OuterDiameter FLOAT,
 	ThreadType NVARCHAR(100),
 	CONSTRAINT JobSiteKey PRIMARY KEY (JobSiteId)
 )
