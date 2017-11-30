@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿#define local
 namespace PipeTallyMobile.Models
-{
+{ 
     public class GlobalSettings
     {
         public bool UseImperial { get; set; }
@@ -14,7 +9,11 @@ namespace PipeTallyMobile.Models
         public GlobalSettings()
         {
             UseImperial = true;
+#if (local)
             ServiceURL = "";
+#else
+            ServiceURL = "";
+#endif
         }
     }
 }
