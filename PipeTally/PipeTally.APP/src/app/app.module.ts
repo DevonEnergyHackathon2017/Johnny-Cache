@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ButtonModule, DataTableModule, GrowlModule, InputTextareaModule, InputTextModule, MenubarModule, MenuModule, MessagesModule, PanelMenuModule, PanelModule, SharedModule, SpinnerModule, TieredMenuModule } from "primeng/primeng";
 import { MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule, MatSelectModule, MatTabsModule, MatToolbarModule, MatSidenavModule } from "@angular/material";
 
+
 import { AppRoutingModule } from "./app.routing";
 
 import { BusyService } from "./services/busy.service";
@@ -19,10 +20,12 @@ import { MeasurementService } from "./services/measurement.service";
 import { AppComponent } from "./app.component";
 import { FullLayoutComponent } from "./layouts/full-layout.component";
 import { ApplicationsComponent } from "./areas/applications/applications.component";
+import { HomeComponent } from "./areas/home/home.component";
+import { HomeMeasurementComponent } from "./areas/home/home-measurements.component";
 
 @NgModule({
   declarations: [
-    AppComponent, FullLayoutComponent, ApplicationsComponent
+    AppComponent, FullLayoutComponent, ApplicationsComponent, HomeComponent, HomeMeasurementComponent
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@ namespace PipeTally.DataModel
 
         public int? UseOrder { get; set; }
 
-        public bool? IsDamanged { get; set; }
+        public bool? IsDamaged { get; set; }
 
         public virtual JobSite JobSite { get; set; }
     }

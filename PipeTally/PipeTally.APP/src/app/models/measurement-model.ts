@@ -6,6 +6,6 @@ export class MeasurementModel {
     public PipeLength: number;
     public ThreadLength: number;
     public UseOrder: number;
-    public IsDamanged: boolean;
+    public IsDamaged: boolean;
     public JobSite: JobSiteModel;
 }

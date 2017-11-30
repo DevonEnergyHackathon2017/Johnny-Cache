@@ -5,7 +5,7 @@
 	PipeLength FLOAT,
 	ThreadLength FLOAT,
 	UseOrder INT,
-	IsDamanged BIT,
+	[IsDamaged] BIT,
 	CONSTRAINT MeasurementKey PRIMARY KEY (MeasurementId),
 	CONSTRAINT MeasurementJobSiteRef FOREIGN KEY (JobSiteId) REFERENCES dbo.JobSite(JobSiteId)
 )

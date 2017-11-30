@@ -3,7 +3,8 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { FullLayoutComponent } from "./layouts/full-layout.component";
 import { ApplicationsComponent } from "./areas/applications/applications.component";
-
+import { HomeComponent } from "./areas/home/home.component"
+import { HomeMeasurementComponent } from "./areas/home/home-measurements.component"
 
 export const routes: Routes = [
   {
@@ -11,7 +12,15 @@ export const routes: Routes = [
     component: FullLayoutComponent,
     data: { title: "Home" },
     children: [
-      { path: "", component: ApplicationsComponent },
+      { path: "", component: HomeComponent },
+    ]
+  },
+  {
+    path: "",
+    component: FullLayoutComponent,
+    data: { title: "Home Measurement" },
+    children: [
+      { path: "home-measurement", component: HomeMeasurementComponent },
     ]
   }
 ];
