@@ -6,10 +6,6 @@ import { JobSiteModel } from "../../models/job-site-model";
 import { JobSiteService } from "../../services/job-site.service";
 import { HomeEditComponent } from "./shared/home-edit.component";
 
-// import { PersonIdentifierTypeModel } from "../../models/person-identifier-type-model";
-// import { PersonIdentifierTypeService } from "../../services/person-identifier-type.service";
-// import { PersonIdentifierTypeEditComponent } from "./shared/person-identifier-type-edit.component";
-
 @Component({
   selector: "app-home-update",
   templateUrl: "./home-update.component.html"
@@ -35,11 +31,11 @@ export class HomeUpdateComponent implements OnInit {
       .subscribe(x => {
         this._busySvc.SetFree();
         this.entity = x;
-        this.messageSvc.AddInfo("job siteupdate", "The job sitewas loaded successfully.");
+        this.messageSvc.AddInfo("job site update", "The job site was loaded successfully.");
       },
       error => {
         this._busySvc.SetFree();
-        this.messageSvc.AddError("job siteupdate", error);
+        this.messageSvc.AddError("job site update", error);
       });
 
   }
@@ -51,11 +47,11 @@ export class HomeUpdateComponent implements OnInit {
     this._jobSiteSvc.Patch(this.entity, this.entity.JobSiteId)
       .subscribe(x => {
         this._busySvc.SetFree();
-        this.messageSvc.AddSuccess("job siteupdate", "The job sitewas saved successfully.");
+        this.messageSvc.AddSuccess("job site update", "The job site was saved successfully.");
       },
       error => {
         this._busySvc.SetFree();
-        this.messageSvc.AddError("job siteupdate", error);
+        this.messageSvc.AddError("job site update", error);
       });
   }
 

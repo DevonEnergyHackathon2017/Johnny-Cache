@@ -32,7 +32,7 @@ export class HomeDeleteComponent implements OnInit {
       })
       .subscribe(x => {
         this._busySvc.SetFree();
-        this.msgs.push({ severity: "warn", summary: "Confirm", detail: "Are you sure you want to delete this person identifier type?" });
+        this.msgs.push({ severity: "warn", summary: "Confirm", detail: "Are you sure you want to delete this job site?" });
         this.entity = x;
         this.messageSvc.AddInfo("job site delete", "The job site was loaded successfully.");
       },

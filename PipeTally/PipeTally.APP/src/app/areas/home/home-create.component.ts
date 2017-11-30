@@ -7,8 +7,8 @@ import { JobSiteModel } from "../../models/job-site-model";
 import { HomeEditComponent } from "./shared/home-edit.component";
 
 @Component({
-  selector: "app-person-identifier-type-create",
-  templateUrl: "./person-identifier-type-create.component.html"
+  selector: "app-home-create",
+  templateUrl: "./home-create.component.html"
 })
 export class HomeCreateComponent implements OnInit {
   constructor(
