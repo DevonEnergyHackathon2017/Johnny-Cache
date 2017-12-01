@@ -8,6 +8,9 @@ The mobile applications are designed to accept measurement input entered either 
 
 ![Image of System Diagram](https://github.com/glmblue/Johnny-Cache/blob/master/PipeTallySystem.png)
 
+See it in Action!
+[![Johnny Cache](https://github.com/glmblue/Johnny-Cache/blob/master/DemoThumb.png?raw=true)](https://youtu.be/S92_YsLf224)
+
 ### Prerequisites
 
 Microsoft .NET Framework Version 4.6.01055
