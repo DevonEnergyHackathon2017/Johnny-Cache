@@ -46,6 +46,7 @@ namespace PipeTallyMobile
             {
                 //save the measurement and continue to next pipe.
                 var measure = new Measurement();
+                measure.MeasureBatchID = _batch.ID;
                 measure.FullLength = double.Parse(txtFullLength.Text);
                 measure.ThreadLength = double.Parse(txtThreadLength.Text);
                 measure.Order = _batchMeasures.Count() + 1;

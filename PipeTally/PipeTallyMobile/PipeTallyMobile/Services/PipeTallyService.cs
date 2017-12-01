@@ -59,6 +59,7 @@ namespace PipeTallyMobile.Services
         {
             var jobSite = new JobSiteObject
             {
+                JobSiteId = 0,
                 Grade = measureBatch.Grade,
                 OuterDiameter = measureBatch.OuterDiameter,
                 InnerDiameter = measureBatch.InnerDiameter,
@@ -66,7 +67,7 @@ namespace PipeTallyMobile.Services
                 ThreadType = measureBatch.TopThread,
                 Latitude = measureBatch.Latitude,
                 Longitude = measureBatch.Longitude,
-                Title = "",
+                Title = measureBatch.SiteName,
                 Measurements = convertMeasurements(measurements)
             };
             return jobSite;
@@ -85,7 +86,7 @@ namespace PipeTallyMobile.Services
                     Joint = --jointNum,
                     PipeLength = measurement.FullLength,
                     ThreadLength = measurement.ThreadLength,
-                    //TopThread = measurement.
+                    //TopThread = measurement
 
                 });
             }
