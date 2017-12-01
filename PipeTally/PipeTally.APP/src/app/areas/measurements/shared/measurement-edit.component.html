@@ -1,0 +1,33 @@
+<div *ngIf="entity">
+  <form *ngIf="form" [formGroup]="form">
+    <div>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Joint" maxlength="100" formControlName="Joint" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="number" placeholder="PipeLength" formControlName="PipeLength" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="number" placeholder="ThreadLength" formControlName="ThreadLength" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="string" maxlength="100" placeholder="ItemDescription" formControlName="ItemDescription" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="string" maxlength="100" placeholder="TopThread" formControlName="TopThread" />
+      </mat-form-field>
+    </div>
+    <div>
+      <!--This needs updated -->
+      <mat-checkbox formControlName="IsDamaged">IsDamaged</mat-checkbox>
+    </div>
+  </form>
+</div>

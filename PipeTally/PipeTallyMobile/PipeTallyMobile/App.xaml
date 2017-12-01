@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PipeTallyMobile.App">
+	<Application.Resources>
+
+		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <Style x:Key="entryLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+            <Style TargetType="StackLayout">
+                <Setter Property="Padding" Value="10,10,10,10" />
+            </Style>
+            <Style TargetType="Page">
+                <Setter Property="BackgroundColor" Value="#708690" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#D50000" />
+                <Setter Property="TextColor" Value="#FFFFFF" />
+            </Style>
+            <Style TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="#F5F5F6"/>
+                <Setter Property="OutlineColor" Value="#9B0000" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
