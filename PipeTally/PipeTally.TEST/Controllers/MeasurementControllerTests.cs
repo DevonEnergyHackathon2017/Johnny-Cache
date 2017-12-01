@@ -100,7 +100,7 @@ namespace PipeTally.TEST.Controllers
 
             //Evalute
             dataModelMock.Verify(x => x.SaveChanges(), Times.Once);
-            Assert.IsInstanceOf<UpdatedODataResult<JobSite>>(results);
+            Assert.IsInstanceOf<UpdatedODataResult<Measurement>>(results);
         }
 
         [Test]
