@@ -31,7 +31,7 @@ export class MeasurementListComponent implements OnInit {
     this._measurementSvc
       .Query()
       .Filter(`JobSiteId eq ${this.jobSite.JobSiteId}`)
-      .OrderBy("Joint")
+      .OrderBy("Joint desc")
       .Exec()
       .subscribe(x => {
         this._busySvc.SetFree();
@@ -68,5 +68,28 @@ export class MeasurementListComponent implements OnInit {
   onRowSelect(event) {
     var jobIdentType = event.data as MeasurementModel;
     this._router.navigate(["/measurement-read", jobIdentType.MeasurementId]);
+  }
+
+  onReorder() {
+    var n = this.Measurements.length;
+    for(var i = 0; i < n; i++) {
+      var measure = this.Measurements[i];
+      measure.Joint = n - i;
+    }
+  }
+
+  public Save() {
+    this.jobSite.Measurements = this.Measurements;
+
+    this._busySvc.SetBusy();
+    this._jobSiteSvc.Patch(this.jobSite, this.jobSite.JobSiteId)
+      .subscribe(x => {
+        this._busySvc.SetFree();
+        this.messageSvc.AddSuccess("measurement list", "The measurement order was changed successfully.");
+      },
+      error => {
+        this._busySvc.SetFree();
+        this.messageSvc.AddError("measurement list", error);
+      });
   }
 }

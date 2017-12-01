@@ -26,7 +26,7 @@ export class JobSiteUpdateComponent implements OnInit {
     this._activatedRoute.params
       .switchMap(params => {
         this._busySvc.SetBusy();
-        return this._jobSiteSvc.Get(+params["id"]).Exec();
+        return this._jobSiteSvc.Get(+params["id"]).Expand("Measurements").Exec();
       })
       .subscribe(x => {
         this._busySvc.SetFree();
