@@ -6,7 +6,7 @@ The initial version of PipeTally consists of an Azure SQL Server database, expos
 
 The mobile applications are designed to accept measurement input entered either manually, or - preferably - via bluetooth capable laser measurement tool.  Further, the mobile applications support offline data collection with mobile storage with automatic synchronization of data to the cloud backend.
 
-![Image of System Diagram](https://github.com/glmblue/Johnny-Cache/master/PipeTallySystem.png)
+![Image of System Diagram](https://github.com/glmblue/Johnny-Cache/blob/master/PipeTallySystem.png)
 
 ### Prerequisites
 
