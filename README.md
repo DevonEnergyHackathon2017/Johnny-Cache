@@ -1,8 +1,12 @@
 ## PipeTally beta 1.001
 
-PipeTally is a set of connected tools intended to efficiently collect, track and store drill pipe and other downhole equipment counts, length, order, etc. It is meant to replace the current manual, paper based processes that are in use today.
+PipeTally is a set of connected tools intended to efficiently collect, track and store drill pipe and other downhole equipment.  It currently tracks counts, length, order, etc. It is meant to replace the current manual paper-based process that is in use today.
 
-The initial version of PipeTally utilizes both IOS and Android mobile applications, Bluetooth enabled Laser measurement tools for onsite data collection along with a Web interface for other data management tasks,  The backend consists of an extensible cloud based Web API backed by an AZURE SQL Server database.  The Mobile interfaces will function disconnected and will auto-sync data as connectivity becomes available.   
+The initial version of PipeTally consists of an Azure SQL Server database, exposed via an Asp.Net Web API REST service, fronted by both an Angular 4 UI for data management and a cross-platform mobile app for in-field data collection.
+
+The mobile applications are designed to accept measurement input entered either manually, or - preferably - via bluetooth capable laser measurement tool.  Further, the mobile applications support offline data collection with mobile storage with automatic synchronization of data to the cloud backend.
+
+![Image of System Diagram](https://github.com/glmblue/Johnny-Cache/blob/master/PipeTallySystem.png)
 
 ### Prerequisites
 

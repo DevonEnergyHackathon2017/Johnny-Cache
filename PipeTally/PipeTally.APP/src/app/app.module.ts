@@ -4,7 +4,7 @@ import { NgModule, Injectable } from "@angular/core";
 import { HttpModule, Http } from "@angular/http";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { ButtonModule, DataTableModule, GrowlModule, InputTextareaModule, InputTextModule, MenubarModule, MenuModule, MessagesModule, PanelMenuModule, PanelModule, SharedModule, SpinnerModule, TieredMenuModule } from "primeng/primeng";
+import { ButtonModule, DataTableModule, GrowlModule, InputTextareaModule, InputTextModule, MenubarModule, MenuModule, MessagesModule, OrderListModule, PanelMenuModule, PanelModule, SharedModule, SpinnerModule, TieredMenuModule } from "primeng/primeng";
 import { MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule, MatSelectModule, MatTabsModule, MatToolbarModule, MatSidenavModule } from "@angular/material";
 
 import { AppRoutingModule } from "./app.routing";
@@ -49,7 +49,7 @@ import { MeasurementViewComponent } from "./areas/measurements/shared/measuremen
     FormsModule, ReactiveFormsModule,
     AppRoutingModule,
 
-    ButtonModule, DataTableModule, GrowlModule, InputTextareaModule, InputTextModule, MenubarModule, MenuModule, MessagesModule, PanelMenuModule, PanelModule, SharedModule, SpinnerModule, TieredMenuModule,
+    ButtonModule, DataTableModule, GrowlModule, InputTextareaModule, InputTextModule, MenubarModule, MenuModule, MessagesModule, OrderListModule, PanelMenuModule, PanelModule, SharedModule, SpinnerModule, TieredMenuModule,
     MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatExpansionModule, MatGridListModule, MatInputModule, MatListModule, MatMenuModule, MatSelectModule, MatTabsModule, MatToolbarModule, MatSidenavModule,
     
   ],
