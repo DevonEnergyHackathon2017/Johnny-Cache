@@ -10,11 +10,8 @@ namespace PipeTally.Services
 
         private void Load(Measurement entity)
         {
-            if (entity.JobSite == null)
-            {
-                entity.JobSite = _data.JobSites.Find(entity.JobSiteId);
-                entity.JobSiteId = (entity.JobSite?.JobSiteId) ?? 0;
-            }
+            entity.JobSite = _data.JobSites.Find(entity.JobSiteId);
+            entity.JobSiteId = (entity.JobSite?.JobSiteId) ?? 0;
         }
 
         public MeasurementService(IDataModel data)

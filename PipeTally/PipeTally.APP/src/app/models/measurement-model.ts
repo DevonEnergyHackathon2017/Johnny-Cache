@@ -1,11 +1,13 @@
 import { JobSiteModel } from "./job-site-model";
 
-export class MeasurementModel { 
+export class MeasurementModel {
     public MeasurementId: number;
     public JobSiteId: number;
+    public Joint: number;
     public PipeLength: number;
     public ThreadLength: number;
-    public UseOrder: number;
-    public IsDamanged: boolean;
-    public JobSite: JobSiteModel;
+    public ItemDescription: string;
+    public TopThread: string;
+    public IsDamaged: boolean;
+    public JobSite: JobSiteModel
 }
