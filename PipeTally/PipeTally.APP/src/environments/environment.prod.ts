@@ -2,6 +2,6 @@ export const environment = {
     production: true,
     odataConfig: [{
         name: "PipeTally",
-        baseUrl: "http://jc-pipetallyapi.azurewebsites.net/"
+        baseUrl: "https://jc-pipetallyapi.azurewebsites.net/"
     }]
 };

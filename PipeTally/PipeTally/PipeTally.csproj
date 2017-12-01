@@ -244,6 +244,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\jc-pipetallyapi - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\jc-pipetallyapi - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
