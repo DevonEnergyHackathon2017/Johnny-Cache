@@ -19,9 +19,9 @@ Git 2.0
 ### Installing for Local Development:  please see the above prerequisites
 Clone or Download this Repo.
 Install SQL Server Developer edition, Publish included database project to local instance, ensure db service is running
-Start IIS Express for API: http://localhost:65095/
+Start IIS Express for API: 'http port: 65095'
 Run local IOS or Android Emulators
-Start Node Server for Web App: http://localhost:4200/
+Start Node Server for Web App: 'http port: 4200'
 
 
 ## Deployment
@@ -41,7 +41,7 @@ Web API / APP: MS Build / Currently Manual Publish
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see (LICENSE.md) file for details
 
 ## Acknowledgments
 
