@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PipeTallyMobile.StartNewPage"
+             Title="Pipe Tally - New">
+    <ContentPage.Content>
+
+        <StackLayout BackgroundColor="#708690">
+
+            <Label TextColor="White" Text="Enter details for the whole batch of casing" />
+
+            <Frame>
+                <StackLayout>
+                    <Picker x:Name="pckSiteName" Title="Site Name" />
+                    <Picker x:Name="pckOuterDiam" Title="Outer Diam" />
+                    <Picker x:Name="pckWeight" Title="Weight" />
+                    <Picker x:Name="pckGrade" Title="Grade" />
+                    <Picker x:Name="pckInnerDiam" Title="Inner Diam" />
+                    <Picker x:Name="pckThread" Title="Top Thread Type" />
+                </StackLayout>
+            </Frame>
+            <Button HeightRequest="60"
+                    Text="Start Measuring"
+                    Clicked="OnStartMeasure"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

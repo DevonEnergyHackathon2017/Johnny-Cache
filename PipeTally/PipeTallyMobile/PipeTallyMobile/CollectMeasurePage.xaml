@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PipeTallyMobile.CollectMeasurePage"
+             Title="Pipe Tally - Measure">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#708690">
+            <Frame>
+                <StackLayout VerticalOptions="StartAndExpand">
+                    <Label x:Name="lblCount" Text="Collected 0 measurements" />
+                    <Label Text="Full Length" Style="{StaticResource entryLabel}"/>
+                    <Entry x:Name="txtFullLength" Keyboard="Numeric" Completed="txtFullLength_Completed" />
+                    <Label Text="Thread Length" Style="{StaticResource entryLabel}"/>
+                    <Entry x:Name="txtThreadLength" Keyboard="Numeric" Completed="txtThreadLength_Completed" />
+                    <Button Text="Advance" HeightRequest="100" Clicked="OnAdvance"/>
+                </StackLayout>
+            </Frame>
+            <BoxView></BoxView>
+            <Frame BackgroundColor="#1b3039" VerticalOptions="End">
+                <Button Text="Finished" BackgroundColor="#9B0000" TextColor="White" Clicked="OnFinished" />
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
