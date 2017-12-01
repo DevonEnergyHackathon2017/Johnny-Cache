@@ -8,4 +8,5 @@ export class JobSiteModel {
     public InnerDiameter: number;
     public OuterDiameter: number;
     public ThreadType: string;
+    public Measurements: Array<any>;
 }
