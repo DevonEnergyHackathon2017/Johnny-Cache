@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PipeTallyMobile"
+             x:Class="PipeTallyMobile.MainPage">
+    <StackLayout>
+	    <Label Text="Let's measure some pipe!"
+               HorizontalOptions="Center" />
+        <Button  Text="Start new measuring session" BackgroundColor="DarkGreen" TextColor="White"
+            Clicked="OnStartNewSession" HeightRequest="60"></Button>
+        <BoxView></BoxView>
+        <Label Text="Measure in Feet"></Label>
+        <Switch IsToggled="True" />
+    </StackLayout>
+</ContentPage>
