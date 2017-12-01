@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PipeTally.DB.publish.xml" />
+    <None Include="Seed.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PipeTally.DB.refactorlog" />

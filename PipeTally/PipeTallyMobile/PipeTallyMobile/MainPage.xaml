@@ -2,10 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PipeTallyMobile"
-             x:Class="PipeTallyMobile.MainPage">
-
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-
+             x:Class="PipeTallyMobile.MainPage"
+             Title="Pipe Tally">
+    
+    <StackLayout BackgroundColor="#708690">
+	    <Label TextColor="White"
+               Text="Let's measure some pipe!"
+               HorizontalOptions="Center" />
+        <Frame>
+            <StackLayout>
+                <Button  Text="Start new measuring session"
+                    Clicked="OnStartNewSession" HeightRequest="80"></Button>
+                <BoxView></BoxView>
+                <Label Text="Measure in Feet"></Label>
+                <Switch IsToggled="True" />
+            </StackLayout>
+        </Frame>
+    </StackLayout>
 </ContentPage>

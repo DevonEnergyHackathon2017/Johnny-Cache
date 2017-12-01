@@ -1,8 +1,9 @@
-﻿using PipeTally.DataModel;
-using System;
+﻿using System;
 using System.Linq;
+using PipeTally.DataModel;
+using PipeTally.Services.Abstract;
 
-namespace PipeTally.Services
+namespace PipeTally.Services.Concrete
 {
     public class JobSiteService : IJobSiteService
     {
