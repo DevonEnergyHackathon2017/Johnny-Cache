@@ -23,7 +23,12 @@ namespace PipeTallyMobile
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new PipeTallyMobile.MainPage());
+            MainPage = new NavigationPage(new PipeTallyMobile.MainPage())
+            {
+                //nav page styling
+                BarBackgroundColor = Color.FromHex("1b3039")
+            };
+            
             Settings = new GlobalSettings();
         }
 
