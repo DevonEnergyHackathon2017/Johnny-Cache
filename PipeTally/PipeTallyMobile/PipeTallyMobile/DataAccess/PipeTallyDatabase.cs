@@ -55,7 +55,9 @@ namespace PipeTallyMobile.DataAccess
 
         public void StoreFullBatch(MeasureBatch batch, List<Measurement> measurements)
         {
-            _database.InsertOrReplaceAsync(batch);
+            var cnt = _database.InsertAsync(batch).Result;
+            foreach(var m in measurements) { m.MeasureBatchID = batch.ID; }
+
             _database.InsertAllAsync(measurements);
         }
     }
