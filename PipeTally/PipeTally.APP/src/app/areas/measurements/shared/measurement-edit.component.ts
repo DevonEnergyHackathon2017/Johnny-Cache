@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { MeasurementModel } from "../../../models/measurement-model";
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: "app-measurement-edit",
@@ -17,7 +17,7 @@ export class MeasurementEditComponent {
       "ThreadLength": new FormControl(null, [Validators.required]),
       "ItemDescription": new FormControl(null, [Validators.required]),
       "TopThread": new FormControl(null, [Validators.required]),
-      "IsDamaged": new FormControl(null, [Validators.required]),    
+      "IsDamaged": new FormControl(null, null),
     });
   }
   private _entity: MeasurementModel;
@@ -29,7 +29,7 @@ export class MeasurementEditComponent {
     this.form.get("ThreadLength").setValue(this._entity.ThreadLength);
     this.form.get("ItemDescription").setValue(this._entity.ItemDescription);
     this.form.get("TopThread").setValue(this._entity.TopThread);
-    this.form.get("IsDamaged").setValue(this._entity.IsDamaged);    
+    this.form.get("IsDamaged").setValue(this._entity.IsDamaged);
     return true;
   }
 
@@ -42,7 +42,7 @@ export class MeasurementEditComponent {
     this._entity.ThreadLength = this.form.get("ThreadLength").value;
     this._entity.ItemDescription = this.form.get("ItemDescription").value;
     this._entity.TopThread = this.form.get("TopThread").value;
-    this._entity.IsDamaged = this.form.get("IsDamaged").value;
+    this._entity.IsDamaged = this.form.get("IsDamaged").value ? true : false;
     return true;
   }
 

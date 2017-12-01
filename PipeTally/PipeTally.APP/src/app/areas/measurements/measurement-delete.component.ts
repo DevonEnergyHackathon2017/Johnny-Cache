@@ -28,7 +28,7 @@ export class MeasurementDeleteComponent implements OnInit {
     this._activatedRoute.params
       .switchMap(params => {
         this._busySvc.SetBusy();
-        return this._jobSiteSvc.Get(+params["id"]).Exec();
+        return this._jobSiteSvc.Get(+params["id"]).Expand("JobSite").Exec();
       })
       .subscribe(x => {
         this._busySvc.SetFree();
@@ -48,7 +48,7 @@ export class MeasurementDeleteComponent implements OnInit {
       .subscribe(x => {
         this._busySvc.SetFree();
         this.messageSvc.AddSuccess("measurement delete", "The measurement was deleted successfully.");
-        this._router.navigate(["/measurement-list"]);
+        this._router.navigate(["/measurement-list", this.entity.JobSiteId]);
       },
       error => {
         this._busySvc.SetFree();

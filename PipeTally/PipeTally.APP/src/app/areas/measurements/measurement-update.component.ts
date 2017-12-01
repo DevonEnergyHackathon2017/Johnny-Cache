@@ -26,7 +26,7 @@ export class MeasurementUpdateComponent implements OnInit {
     this._activatedRoute.params
       .switchMap(params => {
         this._busySvc.SetBusy();
-        return this._measurementSvc.Get(+params["id"]).Exec();
+        return this._measurementSvc.Get(+params["id"]).Expand("JobSite").Exec();
       })
       .subscribe(x => {
         this._busySvc.SetFree();

@@ -23,7 +23,7 @@ export class MeasurementReadComponent implements OnInit {
     this._activatedRoute.params
       .switchMap(params => {
         this._busySvc.SetBusy();
-        return this._jobSiteService.Get(+params["id"]).Exec();
+        return this._jobSiteService.Get(+params["id"]).Expand("JobSite").Exec();
       })
       .subscribe(x => {
         this._busySvc.SetFree();

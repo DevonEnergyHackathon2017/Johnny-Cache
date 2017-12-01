@@ -3,32 +3,39 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Message } from "primeng/components/common/api";
 import { MessageService } from "../../services/message.service";
 import { BusyService } from "../../services/busy.service";
-import { MeasurementModel } from "../../models/measurement-model";
-import { MeasurementService } from "../../services/measurement.service";
 
+import { JobSiteModel } from "../../models/job-site-model";
+import { MeasurementModel } from "../../models/measurement-model";
+
+import { MeasurementService } from "../../services/measurement.service";
+import { JobSiteService } from "../../services/job-site.service";
 
 @Component({
   selector: "app-measurement-list",
   templateUrl: "./measurement-list.component.html"
 })
 export class MeasurementListComponent implements OnInit {
-  public MeasurementType: MeasurementModel[];
+  public Measurements: MeasurementModel[];
 
   constructor(
+    private _activatedRoute: ActivatedRoute,
     private _router: Router,
-    private _jobSiteSvc: MeasurementService,
+    private _jobSiteSvc: JobSiteService,
+    private _measurementSvc: MeasurementService,
     public messageSvc: MessageService,
     private _busySvc: BusyService
   ) { }
 
   public Reload() {
     this._busySvc.SetBusy();
-    this._jobSiteSvc
+    this._measurementSvc
       .Query()
+      .Filter(`JobSiteId eq ${this.jobSite.JobSiteId}`)
+      .OrderBy("Joint")
       .Exec()
       .subscribe(x => {
         this._busySvc.SetFree();
-        this.MeasurementType = x;
+        this.Measurements = x;
         this.messageSvc.AddInfo("measurement list", x.length + " items found.");
       },
       error => {
@@ -37,10 +44,25 @@ export class MeasurementListComponent implements OnInit {
       });
   }
 
-  public CanCreate: boolean = false;
-
+  public jobSite: JobSiteModel;
+  
   ngOnInit() {
-    this.Reload();
+    this._activatedRoute.params
+      .switchMap(params => {
+        this._busySvc.SetBusy();
+        return this._jobSiteSvc.Get(+params["id"]).Exec();
+      })
+      .subscribe(x => {
+        this._busySvc.SetFree();
+        this.jobSite = x;
+        this.messageSvc.AddInfo("measurement list", "The job site was loaded successfully.");
+
+        this.Reload();
+      },
+      error => {
+        this._busySvc.SetFree();
+        this.messageSvc.AddError("measurement list", error);
+      });
   }
 
   onRowSelect(event) {

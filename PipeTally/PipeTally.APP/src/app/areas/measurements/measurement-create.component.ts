@@ -1,9 +1,14 @@
 import { Component, ViewChild, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { MessageService } from "../../services/message.service";
 import { BusyService } from "../../services/busy.service";
-import { MeasurementService } from "../../services/measurement.service";
+
+import { JobSiteModel } from "../../models/job-site-model";
 import { MeasurementModel } from "../../models/measurement-model";
+
+import { MeasurementService } from "../../services/measurement.service";
+import { JobSiteService } from "../../services/job-site.service";
+
 import { MeasurementEditComponent } from "./shared/measurement-edit.component";
 
 @Component({
@@ -12,22 +17,27 @@ import { MeasurementEditComponent } from "./shared/measurement-edit.component";
 })
 export class MeasurementCreateComponent implements OnInit {
   constructor(
+    private _activatedRoute: ActivatedRoute,
     private _router: Router,
-    private _jobSiteService: MeasurementService,
+    private _jobSiteSvc: JobSiteService,
+    private _measurementSvc: MeasurementService,
     public messageSvc: MessageService,
     private _busySvc: BusyService
   ) { }
 
+  public jobSite: JobSiteModel;
   public entity: MeasurementModel = new MeasurementModel();
 
   @ViewChild(MeasurementEditComponent)
   private _edit: MeasurementEditComponent;
 
   public Save() {
-    if (!this._edit.ReadForm()) { return; }
-    this.entity.JobSiteId = 
+    if (!this._edit.ReadForm()) {
+      this.messageSvc.AddInfo("measurement create", "The measurement form is not valid.");
+      return;
+    }
     this._busySvc.SetBusy();
-    this._jobSiteService.Post(this.entity)
+    this._measurementSvc.Post(this.entity)
       .subscribe(x => {
         this._busySvc.SetFree();
         this.messageSvc.AddSuccess("measurement create", "The measurement was created successfully.")
@@ -41,11 +51,28 @@ export class MeasurementCreateComponent implements OnInit {
 
   public Reset() {
     this.entity = new MeasurementModel();
-    this.messageSvc.AddSuccess("measurement type create", "The measurement type was reset.")
+    this.messageSvc.AddSuccess("measurement create", "The measurement type was reset.")
   }
 
-  public CanCreate: boolean = false;
-
   ngOnInit() {
+    this._activatedRoute.params
+      .switchMap(params => {
+        this._busySvc.SetBusy();
+        return this._jobSiteSvc.Get(+params["id"]).Exec();
+      })
+      .subscribe(x => {
+        this._busySvc.SetFree();
+
+        this.jobSite = x;
+        delete this.jobSite["@odata.context"];
+
+        this.entity.JobSiteId = this.jobSite.JobSiteId;
+        this.entity.JobSite = this.jobSite;
+        this.messageSvc.AddInfo("measurement create", "The job site was loaded successfully.");
+      },
+      error => {
+        this._busySvc.SetFree();
+        this.messageSvc.AddError("measurement create", error);
+      });
   }
 }

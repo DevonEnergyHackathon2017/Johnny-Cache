@@ -27,11 +27,11 @@ export const routes: Routes = [
       { path: 'job-site-delete/:id', component: JobSiteDeleteComponent },
       { path: 'job-site-list', component: JobSiteListComponent },
 
-      { path: 'measurement-create', component: MeasurementCreateComponent },
+      { path: 'measurement-create/:id', component: MeasurementCreateComponent },
       { path: 'measurement-read/:id', component: MeasurementReadComponent },
       { path: 'measurement-update/:id', component: MeasurementUpdateComponent },
       { path: 'measurement-delete/:id', component: MeasurementDeleteComponent },
-      { path: 'measurement-list', component: MeasurementListComponent }
+      { path: 'measurement-list/:id', component: MeasurementListComponent }
     ]
   }
 ];

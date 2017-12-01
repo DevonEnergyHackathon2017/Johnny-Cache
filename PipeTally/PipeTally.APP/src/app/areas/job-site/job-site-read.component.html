@@ -13,7 +13,9 @@
       <span class="fa fa-edit"></span> update</a>
     <a mat-button color="primary" [routerLink]="['/job-site-delete', entity.JobSiteId]" title="delete">
       <span class="fa fa-trash"></span> delete</a>
-  </mat-card-actions>
+      <a mat-button color="primary" [routerLink]="['/measurement-list', entity.JobSiteId]" title="measurements">
+        <span class="fa fa-eye"></span> measurements</a>
+    </mat-card-actions>
   <mat-card-content>
     <app-job-site-view [entity]="entity"></app-job-site-view>
   </mat-card-content>

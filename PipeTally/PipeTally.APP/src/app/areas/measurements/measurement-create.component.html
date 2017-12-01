@@ -1,11 +1,11 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>
-      <h3>measurement create</h3>
+      <h2 *ngIf="jobSite">measurement create for {{jobSite.Title}}</h2>
     </mat-card-title>
   </mat-card-header>
   <mat-card-actions>
-    <a mat-button color="primary" [routerLink]="['/measurement-list']" title="close">
+    <a *ngIf="jobSite" mat-button color="primary" [routerLink]="['/measurement-list', jobSite.JobSiteId]" title="close">
       <span class="fa fa-close"></span> close</a>
   </mat-card-actions>
   <mat-card-content>
